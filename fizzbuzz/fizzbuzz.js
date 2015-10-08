@@ -1,5 +1,10 @@
-/*globals */
+/*globals exports*/
 
-var gitResult = function(){
-    return 0;
+var fizzbuzz = {
+    getResult: function (passIn){
+        return passIn;
+    }
 };
+
+exports.fizzbuzz = fizzbuzz;
+
