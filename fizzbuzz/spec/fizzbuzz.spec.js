@@ -5,7 +5,7 @@ var fizzbuzz = require("../fizzbuzz.js").fizzbuzz;
 (function(){
     "use strict";
     
-    describe("fizz buzz", function () {
+    describe("fizz buzz getResult function", function () {
     
         it("should return 0 given 0", function(){
             expect(fizzbuzz.getResult(0)).toEqual(0);
@@ -30,8 +30,16 @@ var fizzbuzz = require("../fizzbuzz.js").fizzbuzz;
         it("should return fizzbuzz given 15", function(){
             expect(fizzbuzz.getResult(15)).toEqual("fizzbuzz");
         });
-        
+    
     });
+        
+    describe("fizz buzz upTo function", function () {    
+        var result = "0, 1, 2, fizz";
+        it("should return '" + result + "' given 3", function(){
+            expect(upTo(3)).toEqual(result);
+        });
+    });
+    
 })();
 
 
