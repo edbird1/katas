@@ -6,7 +6,7 @@ var fizzbuzz = {
             return 0;
         }
         else if (passIn % 15 === 0){
-            console.log("fizzbuzz" + " " +passIn);
+            console.log("fizzbuzz");
             return "fizzbuzz";
         }
         else if (passIn % 3 === 0){
