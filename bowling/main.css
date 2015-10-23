@@ -1,0 +1,60 @@
+table {
+    border-collapse: collapse;
+    margin: 20px
+}
+
+.topRow td,
+.rolls td,
+.score td {
+    border: 1px solid black;
+}
+
+.topRow td {
+    border: 3px solid black;
+    width: 78px;
+    padding: 5px;
+}
+
+.rolls td {
+    width: 18px;
+    padding-left: 8px;
+}
+
+.topRow .playerName {
+    width: 150px
+}
+
+.rolls .blankName {
+    border-bottom: none;
+    width: 150px;
+}
+
+.score .blankName {
+    width: 150px;
+}
+
+.topRow .finalCountDown {
+    width: 100px
+}
+
+.topRow .total {
+    width: auto;
+}
+
+h1 {
+    color: aqua;
+}
+
+.rolls .blank {
+    border-bottom: none;
+    width: 18px;
+}
+
+.rolls .blankScore {
+    border-bottom: none;
+}
+
+.score td {
+    border-top: none;
+    height: 30px;
+}
