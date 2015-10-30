@@ -45,6 +45,24 @@ describe('The Bowling Game', function () {
         expect(game.score()).toBe(42);
     });
 
+    it('can roll spare strike spare', function () {
+        game.roll(1);
+        game.roll(9);
+        //+20
+        game.roll(10);
+        //+20
+        //=40
+        game.roll(5);
+        game.roll(5);
+        //+13
+        //=53
+        game.roll(3);
+        //+3
+        //=56
+        rollMany(0, 13);
+        expect(game.score()).toBe(56);
+    });
+
     it('can roll a strike', function () {
         game.roll(10);
         game.roll(3);

@@ -48,6 +48,7 @@ h1 {
 .rolls .blank {
     border-bottom: none;
     width: 18px;
+    height: 18px;
 }
 
 .rolls .blankScore {
