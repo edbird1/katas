@@ -3,14 +3,18 @@ var value = function (e) {
     return e;
 };
 
-function rollValue(e) {
     var i = 1;
-    if (i <= 20 && e !== 10) {
-        document.getElementById('roll' + i).innerHTML = e;
+
+function rollValue (pins) {
+
+    if (i <= 21 && pins !== '10') {
+        document.getElementById('roll' + (i)).innerHTML = pins;
         i++;
-    } else if (i % 2 !== 0 && e == 10) {
-        i++;
-        document.getElementById("roll" + 1).innerHTML = "X";
-        i++;
+    } else if (i % 2) {
+        
+        document.getElementById('roll' + i).innerHTML = "X";
+        i += 2;
     }
 }
+
+
