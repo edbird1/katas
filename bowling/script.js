@@ -8,13 +8,13 @@ var value = function (e) {
 function rollValue (pins) {
 
     if (i <= 21 && pins !== '10') {
-        document.getElementById('roll' + (i)).innerHTML = pins;
+        document.getElementById('roll' + i).innerHTML = pins;
         i++;
-    } else if (i % 2) {
-        
+    } else if (i % 2 && pins == '10'){
         document.getElementById('roll' + i).innerHTML = "X";
         i += 2;
     }
+    
 }
 
-
+console.log(2 % 2);
