@@ -1,15 +1,31 @@
 /*globals document*/
-var hidden = false;
+
 var i = 1;
 
-var isHidden = function (obj) {
-    hidden = !hidden;
-    if (hidden) {
-        document.getElementById(obj).style.visibility = 'hidden';
-    } else {
-        document.getElementById(obj).style.visibility = 'visible';
+function frameScore(obj) {
+    switch (getScore()) {
+    case 1:
+        break;
+    case 2:
+        break;
+    case 3:
+        break;
+    case 4:
+        break;
+    case 5:
+        break;
+    case 6:
+        break;
+    case 7:
+        break;
+    case 8:
+        break;
+    case 9:
+        break;
+    case 10:
+        break;
     }
-};
+}
 
 function rollValue(obj) {
 
@@ -119,3 +135,14 @@ function showButtons() {
         obj.disabled = false;
     }
 }
+
+//Code to Hide Buttons
+/*var hidden = false;
+var isHidden = function (obj) {
+    hidden = !hidden;
+    if (hidden) {
+        document.getElementById(obj).style.visibility = 'hidden';
+    } else {
+        document.getElementById(obj).style.visibility = 'visible';
+    }
+};*/
