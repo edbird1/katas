@@ -18,12 +18,10 @@ function rollValue(obj) {
         testRoll(val, false);
         if (i % 2) {
             showButtons();
-            var btn10 = document.getElementById('button10');
-            btn10.innerText = 'X';
+            setStrikeHTML('button10');
         } else {
             disableButtons(val);
-            var btn10 = document.getElementById('button10');
-            btn10.innerText = '/';
+            setSpareHTML('button10');
         }
     } else {
         testRoll(val, true);
@@ -37,33 +35,40 @@ function testRoll(roll, isFrame10) {
             btn.innerText = (roll == 10) ? 'X' : roll;
             if (roll != 10) {
                 disableButtons(roll);
-                var btn10 = document.getElementById('button10');
-                btn10.innerText = '/';
+                setSpareHTML('button10');
             }
         } else if (i == 20) {
             var btn19 = document.getElementById('roll19');
-            console.log(btn19.innerText);
-            if (roll == 10 && btn19.innerText == 'X') {
-                document.getElementById('roll' + i).innerText = 'X';
+            if (btn19.innerText == 'X') {
+                if (roll == 10) {
+                    setStrikeHTML('roll' + i);
+                } else {
+                    document.getElementById('roll' + i).innerText = roll + '';
+                    disableButtons(roll);
+                    setSpareHTML('button10');
+                }
             } else if (roll == 10 && btn19.innerText != 'X') {
-                document.getElementById('roll' + i).innerText = '/';
+                setSpareHTML('roll' + i);
+                setStrikeHTML('button10');
                 showButtons();
             } else {
                 document.getElementById('roll' + i).innerText = roll + '';
-                disableButtons(roll);
-                var btn10 = document.getElementById('button10');
-                btn10.innerText = '/';
+                setSpareHTML('button10');
+                disableButtons(10);
+                i++;
             }
         } else {
             var btn20 = document.getElementById('roll' + (i - 1));
-            if (roll == 10 && btn20.innerText != 'X') {
-                document.getElementById('roll' + i).innerText = '/';
-            } else if (roll == 10) {
-                document.getElementById('roll' + i).innerText = 'X';
+            if (btn20.innerText != 'X' && roll == 10) {
+                setSpareHTML('roll' + i);
+                disableButtons(10);
+            } else if (roll == 10 && btn20.innerText == 'X') {
+                setStrikeHTML('roll' + i);
+                disableButtons(10);
             } else {
                 document.getElementById('roll' + i).innerText = roll + '';
+                disableButtons(10);
             }
-
         }
         i++;
     } else {
@@ -87,7 +92,17 @@ function isStrike(roll) {
 }
 
 function isSpare(roll) {
-    return ((i % 2) == 0 && roll == 10);
+    return ((i % 2) === 0 && roll == 10);
+}
+
+function setStrikeHTML(obj) {
+    var btnSet = document.getElementById(obj);
+    btnSet.innerText = 'X';
+}
+
+function setSpareHTML(obj) {
+    var setHTML = document.getElementById(obj);
+    setHTML.innerText = '/';
 }
 
 function disableButtons(roll) {
