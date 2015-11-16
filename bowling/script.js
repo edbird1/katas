@@ -2,31 +2,6 @@
 
 var i = 1;
 
-function frameScore(obj) {
-    switch (getScore()) {
-    case 1:
-        break;
-    case 2:
-        break;
-    case 3:
-        break;
-    case 4:
-        break;
-    case 5:
-        break;
-    case 6:
-        break;
-    case 7:
-        break;
-    case 8:
-        break;
-    case 9:
-        break;
-    case 10:
-        break;
-    }
-}
-
 function rollValue(obj) {
 
     var val = parseInt(obj.value);
@@ -71,6 +46,7 @@ function testRoll(roll, isFrame10) {
                 document.getElementById('roll' + i).innerText = roll + '';
                 setSpareHTML('button10');
                 disableButtons(10);
+                scoreCalc();
                 i++;
             }
         } else {
@@ -84,6 +60,7 @@ function testRoll(roll, isFrame10) {
             } else {
                 document.getElementById('roll' + i).innerText = roll + '';
                 disableButtons(10);
+                scoreCalc();
             }
         }
         i++;
@@ -133,6 +110,25 @@ function showButtons() {
     for (var j = 0; j <= 10; j++) {
         var obj = document.getElementById('button' + j);
         obj.disabled = false;
+    }
+}
+
+function scoreCalc() {
+	var bowling = new BowlingGame();
+    for(var j = 1; j <= 21; j++){
+    	var temp = document.getElementById('roll' + j).innerText;
+    	 if(temp == 'X' || temp == '/') {
+    		 temp = parseInt('10');
+    	 } else if (temp == '') {
+    		 temp = parseInt('0');
+    	 } else {
+    		 temp = parseInt(temp);                		 
+    	 } 
+    	bowling.roll(temp);
+    }
+    for (var frameIndex = 0; frameIndex < 10; frameIndex++){
+    	var frame = document.getElementById('score' + frameIndex);
+    	frame.innerText = bowling.score();
     }
 }
 
