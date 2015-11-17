@@ -119,7 +119,7 @@ function scoreCalc() {
     	var temp = document.getElementById('roll' + j).innerText;
     	 if(temp == 'X' || temp == '/') {
     		 temp = parseInt('10');
-    	 } else if (temp == '') {
+    	 } else if (temp === '') {
     		 temp = parseInt('0');
     	 } else {
     		 temp = parseInt(temp);                		 
